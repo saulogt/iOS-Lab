@@ -9,7 +9,58 @@
 import UIKit
 
 class TestBlockViewController: UIViewController {
+    
+    var block1 : ((Void)->Void)?
+    var block2 : ((Void)->Void)?
+    var block3 : ((Void)->Void)?
+   
+    @IBAction func startUnowned(_ sender: Any) {
+        
+        self.block1 = { [unowned self] in
+            sleep(2);
+            
+            self.title = "uhuu!"
+            print("foi!");
+        }
 
+        
+        DispatchQueue.global().async(execute: block1!);
+    }
+    
+    
+    @IBAction func startWeak(_ sender: Any) {
+        
+        block2 = { [weak self] in
+            sleep(2);
+            
+            self?.title = "uhuu!"
+            print("foi!");
+        }
+        
+        DispatchQueue.global().async(execute: self.block2!);
+        
+    }
+    @IBAction func startStrong(_ sender: Any) {
+        
+        self.block3 = {
+            sleep(2);
+            
+            self.title = "uhuu!"
+            print("foi!");
+        }
+        
+        
+        DispatchQueue.global().async(execute: block3!);
+
+        
+    }
+    
+    deinit {
+        print("ViewController deinit");
+    }
+ 
+    ///MARK: - VC lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +72,4 @@ class TestBlockViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

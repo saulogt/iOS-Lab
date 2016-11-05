@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gcb-cC-aiz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,126 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZX-lL-ZVO">
+                                <rect key="frame" x="16" y="72" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Objc"/>
+                                <connections>
+                                    <segue destination="uV7-MS-SyB" kind="show" id="Ott-LL-VnH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdS-zn-pgX">
+                                <rect key="frame" x="16" y="110" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Swift"/>
+                                <connections>
+                                    <segue destination="g3l-tQ-zPX" kind="show" id="G3S-7E-xrV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0zf-NE-Qwu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Test Block View Controller-->
+        <scene sceneID="BxV-vz-MbA">
+            <objects>
+                <viewController id="g3l-tQ-zPX" customClass="TestBlockViewController" customModule="iOS_Lab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K5D-k5-fFy"/>
+                        <viewControllerLayoutGuide type="bottom" id="RvQ-fk-Ots"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bt8-Cz-Bth">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHF-HV-sGa">
+                                <rect key="frame" x="16" y="72" width="295" height="30"/>
+                                <state key="normal" title="Start block - unowned self (Possible crash)"/>
+                                <connections>
+                                    <action selector="startUnowned:" destination="g3l-tQ-zPX" eventType="touchUpInside" id="cPy-L8-16E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPy-Dp-yIr">
+                                <rect key="frame" x="16" y="110" width="154" height="30"/>
+                                <state key="normal" title="Start block - weak self"/>
+                                <connections>
+                                    <action selector="startWeak:" destination="g3l-tQ-zPX" eventType="touchUpInside" id="rvH-a9-cxd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y13-AQ-Hev">
+                                <rect key="frame" x="16" y="148" width="258" height="30"/>
+                                <state key="normal" title="Start block - Strong self (retain cycle)"/>
+                                <connections>
+                                    <action selector="startStrong:" destination="g3l-tQ-zPX" eventType="touchUpInside" id="UfD-UV-NjP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y13-AQ-Hev" firstAttribute="leading" secondItem="JPy-Dp-yIr" secondAttribute="leading" id="1bD-jI-ONs"/>
+                            <constraint firstItem="pHF-HV-sGa" firstAttribute="top" secondItem="K5D-k5-fFy" secondAttribute="bottom" constant="8" id="Iz9-Y4-jgC"/>
+                            <constraint firstItem="JPy-Dp-yIr" firstAttribute="top" secondItem="pHF-HV-sGa" secondAttribute="bottom" constant="8" id="LVy-tx-nMs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pHF-HV-sGa" secondAttribute="leading" id="ZTw-gF-OH9"/>
+                            <constraint firstItem="y13-AQ-Hev" firstAttribute="top" secondItem="JPy-Dp-yIr" secondAttribute="bottom" constant="8" id="eVJ-ER-UbR"/>
+                            <constraint firstItem="JPy-Dp-yIr" firstAttribute="leading" secondItem="pHF-HV-sGa" secondAttribute="leading" id="hkH-Ak-1l2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhi-PG-zH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="563.56821589205401"/>
+        </scene>
+        <!--Objc Test Block View Controller-->
+        <scene sceneID="8SU-NO-Bxe">
+            <objects>
+                <viewController id="uV7-MS-SyB" customClass="ObjcTestBlockViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aXy-Tr-6z1"/>
+                        <viewControllerLayoutGuide type="bottom" id="dWP-fN-eq3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="thi-hE-XSO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-DQ-PDQ">
+                                <rect key="frame" x="16" y="72" width="70" height="30"/>
+                                <state key="normal" title="startBlock"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="gSm-DQ-PDQ" secondAttribute="leading" id="7De-YT-EGt"/>
+                            <constraint firstItem="gSm-DQ-PDQ" firstAttribute="top" secondItem="aXy-Tr-6z1" secondAttribute="bottom" constant="8" id="ot1-yi-Xba"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9N-9K-gx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="-112.89355322338831"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mjN-uZ-Njq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gcb-cC-aiz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PsT-Jm-PGU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gZw-GF-3s5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8DO-fl-cQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84" y="-543.77811094452773"/>
         </scene>
     </scenes>
 </document>
